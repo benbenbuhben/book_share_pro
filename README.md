@@ -2,14 +2,18 @@
 
 # Book Share Pro
 
-<a id="overview"></a>
 
-Book Share Pro is a Facebook-integrated web community where users can lend and borrow their personally owned books. Once logged in, users will have access to the shared book collections of all their Facebook friends registered on our site. Check-out requests and due date reminders are facilitated through an easy-to-use notification system.
-* Featuring "Shelf Scan" - the web's only automatic book loading image recognition tool! By loading just a single photo of their book shelf, "Shelf Scan" will parse out the text from each book and automatically load each book to the user's personal collection.
 
 **Author**: Ben Hurst
 
 **Version**: 0.1.0
+
+<a id="overview"></a>
+
+### Overview
+
+Book Share Pro is a Facebook-integrated web community where users can lend and borrow their personally owned books. Once logged in, users will have access to the shared book collections of all their Facebook friends registered on our site. Check-out requests and due date reminders are facilitated through an easy-to-use notification system.
+* Featuring "Shelf Scan" - the web's only automatic book loading image recognition tool! By loading just a single photo of their book shelf, "Shelf Scan" will parse out the text from each book and automatically load each book to the user's personal collection.
 
 ___
 
