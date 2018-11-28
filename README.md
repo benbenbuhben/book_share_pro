@@ -6,8 +6,6 @@
 
 **Version**: 0.1.0
 
-**Live Site**: http://imaginary-air.s3-website-us-west-2.amazonaws.com/
-
 ___
 
 ## Table of contents
