@@ -130,14 +130,14 @@ ___
 
 ### 1. Profile Model
     Profile{
-      user	        foreign key
-      username	    string
-      email	        string
-      first_name    string
-      last_name     string
-      fb_id         string
-      picture       url
-      friends       array
+      user              foreign key
+      username          string
+      email             string
+      first_name        string
+      last_name         string
+      fb_id             string
+      picture           url
+      friends           array
     }
 
 <a id="book-model"></a>
