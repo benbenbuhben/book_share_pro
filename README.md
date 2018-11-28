@@ -89,6 +89,6 @@ ___
 
 ***Client-side Usage:*** Access to the admin console (configure OAuth, direct CRUD operations to database)
 
-![Admin Console](/docs/admin_screenshot.jpg)
+![Admin Console](/docs/admin_screenshot.png)
 
 
