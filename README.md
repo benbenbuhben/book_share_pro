@@ -36,6 +36,8 @@ ___
 
 <a id="technologies"></a>
 
+## Technologies Used
+
 * Book Share Pro is built using Django Web Framework and PostgreSQL. 
 * The "Shelf Scan" tool leverages Google's Cloud Vision API along with various image processing and computer vision tools (NumPy, Matplotlib, OpenCV).
 
