@@ -2,6 +2,11 @@
 
 # Book Share Pro
 
+<a id="overview"></a>
+
+Book Share Pro is a Facebook-integrated web community where users can lend and borrow their personally owned books. Once logged in, users will have access to the shared book collections of all their Facebook friends registered on our site. Check-out requests and due date reminders are facilitated through an easy-to-use notification system.
+* Featuring "Shelf Scan" - the web's only automatic book loading image recognition tool! By loading just a single photo of their book shelf, "Shelf Scan" will parse out the text from each book and automatically load each book to the user's personal collection.
+
 **Author**: Ben Hurst
 
 **Version**: 0.1.0
@@ -12,24 +17,16 @@ ___
 * [Overview](#overview)
 * [Technologies Used](#technologies)
 * [Getting Started](#gettingStarted)
-  * [Clone Repo](#clone)
-  * [Seed Database](#seed)
-  * [Run Tests](#test)
-  * [Start Server](#run)
+  * [Clone repo and setup PostgreSQL](#setup)
+  * [Seed database and run server](#server)
+  * [Configure Facebook OAuth Services](#oauth)
+  * [You're all set!](#site)
 * [API Endpoints](#endpoints)
 * [Models](#models)
-  * [Airport Model](#airport-model)
-  * [Flight Model](#flight-model)
-* [References](#references)
-* [Change Log](#change-log)
-
-___
-
-<a id="overview"></a>
-## Overview
-
-* Book Share Pro is a Facebook-integrated web community where users can lend and borrow their personally owned books. Once logged in, users will have access to the shared book collections of all their Facebook friends registered on our site. Check-out requests and due date reminders are facilitated through an easy-to-use notification system.
-* Featuring "Shelf Scan" - the web's only automatic book loading image recognition tool! By loading just a single photo of their book shelf, "Shelf Scan" will parse out the text from each book and automatically load each book to the user's personal collection.
+  * [Profile Model](#profile-model)
+  * [Book Model](#book-model)
+  * [Document Model](#document-model)
+  * [Notification Model](#document-model)
 
 ___
 
@@ -82,13 +79,101 @@ ___
 
 ___
 <a id="endpoints"></a>
-## API Endpoints
+## Primary API Endpoints
 
+**GET** `/`
+
+***Description:*** Renders homepage view.
 
 **GET** `/admin/`
 
-***Client-side Usage:*** Access to the admin console (configure OAuth, direct CRUD operations to database)
+***Description:*** Access to the admin console (configure OAuth, direct CRUD operations to database)
 
 ![Admin Console](/docs/admin_screenshot.png)
 
+**GET** `/accounts/`
+
+***Description:*** Various endpoints provided by Django-allauth - an integrated set of Django applications addressing authentication, registration, account management as well as 3rd party (Facebook) account authentication.
+
+**GET** `/add/`
+
+***Description:*** Add to your collection landing page.
+
+**GET** `/add/search/`
+
+***Description:*** Standard Google Books API search view.
+
+**POST** `/add/search/`
+
+***Description:*** Form submission ('query' key/value in POST body) to Google Books API.
+
+**POST** `/add/post/`
+
+***Description:*** Creates book model instance with foreign key relationship to user's profile.
+
+**GET** `/add/scan/`
+
+***Description:*** Renders "Shelf Scan" view.
+
+**POST** `/add/scan/`
+
+***Description:*** Passes uploaded shelf image through Book Spine Extraction pipeline.
+___
+<a id="models"></a>
+## Models
+
+<a id="profile-model"></a>
+
+### 1. Profile Model
+    Profile{
+      user	        foreign key
+      username	    string
+      email	        string
+      first_name    string
+      last_name     string
+      fb_id         string
+      picture       url
+      friends       array
+    }
+
+<a id="book-model"></a>
+
+### 2. Book Model
+
+    Book{
+      user	            foreign key
+      owner             string
+      borrower          string
+      requester         string
+      title             string
+      author            string
+      image_url         url
+      year              string
+      status            string
+      data_added        datetime
+      last_borrowed     datetime
+      pre_save_status   datetime
+    }
+        
+<a id="document-model"></a>
+
+### 3. Document Model
+    Document{
+      user	            foreign key
+      docfile           file
+    }
+
+<a id="notification-model"></a>
+
+### 4. Notification Model
+    Notification{
+      type              string
+      status            string
+      from_user         string
+      to_user           string
+      date_added        string
+      book_id           string
+    }
+    
+[Back to top](#top)
 
