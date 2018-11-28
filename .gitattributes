@@ -3,3 +3,5 @@
 *css text eol=lf
 *js text eol=lf
 *.rb linguist-language=Python
+* linguist-vendored
+*.py linguist-vendored=false
